@@ -8,11 +8,18 @@
     <title>exercicio8</title>
 </head>
 <body>
+    <div id="conteudo"></div>
+    
     <script>
         const nomes = ["Joana", "Maria", "Kaio", "Jinx", "Jesus"];
+        const elementoConteudo = document.querySelector('#conteudo');
+        const elementoLista = document.createElement('ul');
         nomes.forEach((elemento) => {
-            
+            const elementoIntemDaLista = document.createElement('li');
+            elementoIntemDaLista.textContent=elemento;
+            elementoLista.appendChild(elementoIntemDaLista);
         } )
+        elementoConteudo.appendChild(elementoLista);
     </script>
 </body>
 </html>
