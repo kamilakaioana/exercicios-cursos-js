@@ -1,0 +1,39 @@
+<!-- Seguindo o resultado do exercício anterior adicione um input em tela e um botão como a seguir, que ao clicar no botão, a função adicionar() deve ser disparada adicionando um novo item a lista de nomes baseado no nome preenchido no input e renderizando o novo item em tela juntos aos demais itens anteriores. Além disso, o conteúdo do input deve ser apagado após o clique. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio8</title>
+</head>
+<body>
+    <div id="conteudo"></div>
+    <input type="text" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+    
+    <script>
+        const nomes = ["Joana", "Maria", "Kaio", "Jinx", "Jesus"];
+        const elementoConteudo = document.querySelector('#conteudo');
+        listar()
+        function listar (){
+            elementoConteudo.innerHTML = ''
+            const elementoLista = document.createElement('ul');
+            nomes.forEach((elemento) => {
+                const elementoIntemDaLista = document.createElement('li');
+                elementoIntemDaLista.textContent=elemento;
+                elementoLista.appendChild(elementoIntemDaLista);
+            } )
+            elementoConteudo.appendChild(elementoLista); 
+        }
+        
+
+        function adicionar(){
+            const elementoInput = document.querySelector('input');
+            nomes.push(elementoInput.value)
+            listar()
+            elementoInput.value = ''   
+        }
+    </script>
+</body>
+</html>
